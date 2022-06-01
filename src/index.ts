@@ -6,6 +6,7 @@ class Main
     //variables
     public venon: Venon
     Contatos = ['555183081839@c.us']
+    Replyonly = ['555183081839@c.us']
     Messages = ['teste']
 
     constructor()
@@ -27,6 +28,9 @@ class Main
         }
         console.log('API INITIALIZED')
         //this.sender.sendMessageForEachContact(this.Contatos, this.Messages)
+        this.venon.client.onMessage((message) => {
+            
+        })
         
     }
 
