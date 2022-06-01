@@ -1,0 +1,18 @@
+{
+  "name": "whatsappts",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/Cesio137/whatsappts.git",
+  "author": "Nathan Miguel <nathan.cm77@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules app.ts"
+  },
+  "devDependencies": {
+    "axis": "^1.0.0",
+    "ts-dev": "^2.1.16",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.7.2",
+    "venom-bot": "4.0.10"
+  }
+}
