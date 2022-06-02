@@ -35,6 +35,11 @@ class Venon {
         }
     }
 
+    public replyMessage(contato, msg)
+    {
+        this.sendText(contato, msg)
+    }
+
     private async sendText(contato: string, msg: string)
     {
         await this.client.sendText(contato, msg)

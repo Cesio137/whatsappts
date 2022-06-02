@@ -1,3 +1,4 @@
+import simsimi from "./simsimi/simsimi";
 import Venon from "./venon-bot";
 
 
@@ -5,6 +6,7 @@ class Main
 {
     //variables
     public venon: Venon
+    public SS: simsimi
     Contatos = ['555183081839@c.us']
     Replyonly = ['555183081839@c.us']
     Messages = ['teste']
@@ -17,6 +19,7 @@ class Main
     private Initialize()
     {
         this.venon = new Venon()
+        this.SS = new simsimi()
         this.onStarted()
     }
 
@@ -27,19 +30,24 @@ class Main
             await this.delay(1000)
         }
         console.log('API INITIALIZED')
-        //this.sender.sendMessageForEachContact(this.Contatos, this.Messages)
-        this.venon.client.onMessage((message) => {
-            
+        
+        this.venon.client.onMessage(async (message) => {
+
+            if (this.Replyonly.includes(message.from))
+            {
+                const data = await this.SS.getAnswer(message.body)
+                this.venon.replyMessage(message.from, data)
+            }
+
         })
         
     }
 
-    private delay(ms: number) {
+    private delay(ms: number) 
+    {
         return new Promise( resolve => setTimeout(resolve, ms) );
     }
 
-    
-    
 }
 
 export default Main
