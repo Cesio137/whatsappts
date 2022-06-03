@@ -17,11 +17,10 @@ class Venon {
             this.client = client
         }
 
-        create("whatsappbot", qr, status)
+        create({session: 'whatsappbot', multidevice: false})
             .then((client) => start(client))
-            .catch((error) => console.error(error))
+            .catch((erro) => {console.log(erro)})
 
-        
 
     }
 
