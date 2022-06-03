@@ -1,5 +1,4 @@
 import {create, Whatsapp, Message, SocketState} from "venom-bot"
-import {start} from "repl"
 
 class Venon {
     public client: Whatsapp
@@ -18,7 +17,7 @@ class Venon {
             this.client = client
         }
 
-        create("ws-sender-dv", qr, status)
+        create("whatsappbot", qr, status)
             .then((client) => start(client))
             .catch((error) => console.error(error))
 

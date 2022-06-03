@@ -6,7 +6,7 @@ class Main
 {
     //variables
     public venon: Venon
-    public SS: simsimi
+    public Simsimi: simsimi
     Contatos = ['555183081839@c.us']
     Replyonly = ['555183081839@c.us']
     Messages = ['teste']
@@ -19,7 +19,7 @@ class Main
     private Initialize()
     {
         this.venon = new Venon()
-        this.SS = new simsimi()
+        this.Simsimi = new simsimi()
         this.onStarted()
     }
 
@@ -35,7 +35,7 @@ class Main
 
             if (this.Replyonly.includes(message.from))
             {
-                const data = await this.SS.getAnswer(message.body)
+                const data = await this.Simsimi.getAnswer(message.body)
                 this.venon.replyMessage(message.from, data)
             }
 
