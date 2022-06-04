@@ -1,7 +1,7 @@
 import {create, Whatsapp, Message, SocketState} from "venom-bot"
 
 class Venon {
-    public client: Whatsapp
+    private client: Whatsapp
 
     constructor() {
         this.initialize()
@@ -10,18 +10,27 @@ class Venon {
 
     private initialize() 
     {
-        const qr = (base64Qring: string) => {}
-        const status = (statusSesssion: string) => {}
-
-        const start = (client: Whatsapp) => {
-            this.client = client
-        }
-
         create({session: 'whatsappbot', multidevice: false})
-            .then((client) => start(client))
+            .then((client) => this.start(client))
             .catch((erro) => {console.log(erro)})
 
+    }
 
+    private start(client:Whatsapp)
+    {
+        this.client = client
+    }
+
+    public getCurrentClient():Whatsapp
+    {
+        return this.client
+    }
+
+    
+
+    private async sendText(contato: string, msg: string)
+    {
+        await this.client.sendText(contato, msg)
     }
 
     public sendMessage(contatos, msgs)
@@ -36,11 +45,6 @@ class Venon {
     public replyMessage(contato, msg)
     {
         this.sendText(contato, msg)
-    }
-
-    private async sendText(contato: string, msg: string)
-    {
-        await this.client.sendText(contato, msg)
     }
 
 }

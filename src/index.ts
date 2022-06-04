@@ -7,9 +7,10 @@ class Main
     //variables
     public venon: Venon
     public Simsimi: simsimi
-    Contatos = ['555183081839@c.us']
-    Replyonly = ['555183081839@c.us']
-    Messages = ['teste']
+    
+    Contatos = ['']
+    Replyonly = ['']
+    Messages = ['']
 
     constructor()
     {
@@ -20,18 +21,18 @@ class Main
     {
         this.venon = new Venon()
         this.Simsimi = new simsimi()
-        this.onStarted()
+        this.onPostInitialized()
     }
 
-    async onStarted()
+    async onPostInitialized()
     {
-        while (this.venon.client == undefined)
+        while (this.venon.getCurrentClient() == undefined)
         {
             await this.delay(1000)
         }
         console.log('API INITIALIZED')
         
-        this.venon.client.onMessage(async (message) => {
+        this.venon.getCurrentClient().onMessage(async (message) => {
 
             if (this.Replyonly.includes(message.from))
             {

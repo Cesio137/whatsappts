@@ -2,8 +2,6 @@ import axios from "axios"
 
 class simsimi 
 {
-    output: string
-
     constructor()
     {
 
